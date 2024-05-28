@@ -3,6 +3,7 @@ plugins {
     id("org.springframework.boot") version "3.3.0"
     id("io.spring.dependency-management") version "1.1.5"
     id("org.asciidoctor.jvm.convert") version "3.3.2"
+    id("checkstyle")
 }
 
 group = "org.mj"
@@ -46,4 +47,12 @@ tasks.test {
 tasks.asciidoctor {
     inputs.dir(project.extra["snippetsDir"]!!)
     dependsOn(tasks.test)
+}
+
+// 코드 컨벤션 설정
+checkstyle {
+    maxWarnings = 0 // 0으로 설정 하면 코드 규칙에 걸리는 게 하나도 없어야 한다.
+    configFile = file("${rootDir}/checkstyle/checkstyle-rules.xml")
+    configProperties["suppressionFile"] = "${rootDir}/checkstyle/checkstyle-suppressions.xml"
+    toolVersion = "10.15.0"
 }

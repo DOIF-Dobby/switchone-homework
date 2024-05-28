@@ -1,0 +1,18 @@
+#!/bin/sh
+
+red='\033[0;31;1m'
+#green='\033[0;32;1m'
+#noColor='\033[0m'
+
+gitRoot=$(git rev-parse --show-toplevel)
+
+"$gitRoot"/gradlew clean build > /dev/null
+checkStyleStatus=$?
+
+if [ $checkStyleStatus -ne 0 ]
+then
+  echo "${red}Failed, checkstyle"
+  exit ${checkStyleStatus}
+fi
+
+
