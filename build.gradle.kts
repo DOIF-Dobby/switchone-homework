@@ -48,6 +48,21 @@ tasks.test {
 tasks.asciidoctor {
     inputs.dir(project.extra["snippetsDir"]!!)
     dependsOn(tasks.test)
+
+    doFirst {
+        delete(file("src/main/resources/static/docs"))
+    }
+
+    doLast {
+        copy {
+            from("build/docs/asciidoc")
+            into("src/main/resources/static/docs")
+        }
+    }
+}
+
+tasks.build {
+    dependsOn(tasks.asciidoctor)
 }
 
 // 코드 컨벤션 설정

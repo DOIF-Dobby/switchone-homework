@@ -33,7 +33,7 @@ public class UserApiController {
 	 */
 	@GetMapping("/balance/{userId}")
 	public UserBalanceResponse getUserBalance(@PathVariable String userId,
-											  @RequestParam(required = false, defaultValue = "KRW") Currency currency) {
+											  @RequestParam(required = false, defaultValue = "USD") Currency currency) {
 		return userFindService.getUserBalance(userId, currency);
 	}
 }

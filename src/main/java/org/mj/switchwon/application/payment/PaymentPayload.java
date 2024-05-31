@@ -18,9 +18,9 @@ public record PaymentPayload(@NotBlank String userId,
 							 @NotBlank String paymentMethod,
 							 @Valid @NotNull PaymentDetailPayload paymentDetails) {
 
-	record PaymentDetailPayload(@NotBlank String cardNumber,
-								@NotBlank String expiryDate,
-								@NotBlank String cvv) {
+	public record PaymentDetailPayload(@NotBlank String cardNumber,
+									   @NotBlank String expiryDate,
+									   @NotBlank String cvv) {
 
 	}
 }
