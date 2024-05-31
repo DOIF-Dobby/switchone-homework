@@ -3,3 +3,23 @@
 ## 지원자: 김명진
 
 안녕하세요. 스위치원 Backend Developer (Java) 포지션에 지원한 김명진입니다.
+
+### API 문서 생성
+
+```shell
+./gradlew asciidoctor
+```
+
+### 어플리케이션 부트
+
+```shell
+./gradlew bootRun
+```
+
+### 초기 설정 값
+
+- 사용자 추가
+    - id: `user1`
+- 잔액 추가
+    - KRW: `70,000원`
+    - USD: `150$`
