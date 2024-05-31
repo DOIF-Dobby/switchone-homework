@@ -4,6 +4,12 @@
 
 안녕하세요. 스위치원 Backend Developer (Java) 포지션에 지원한 김명진입니다.
 
+### 개발 환경
+
+- Java 17
+- Spring boot 3.3.0
+- JPA
+
 ### API 문서 생성
 
 ```shell
@@ -15,6 +21,11 @@
 ```shell
 ./gradlew bootRun
 ```
+
+### 접근 URL
+
+- API 문서: `http://localhost:8080/docs/api-guide.html`
+- h2 콘솔: `http://localhost:8080/h2-console`
 
 ### 초기 설정 값
 
