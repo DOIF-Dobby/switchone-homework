@@ -1,0 +1,32 @@
+# spring 기본 profile을 local로 한다. (기본값은 default)
+spring:
+  application:
+    name: switchwon
+  profiles:
+    active: local
+
+# local profile을 설정한다.
+---
+spring:
+  profiles:
+    default: local
+
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE # mysql 모드 설정
+    driver-class-name: org.h2.Driver
+    username: sa
+
+  h2:
+    console:
+      enabled: true # h2 브라우저에서 H2 데이터베이스 콘솔을 접속할 수 있게 한다.
+      path: /h2-console # 접속경로를 설정한다.
+
+  jpa:
+    hibernate:
+      ddl-auto: create # 어플리케이션 실행 시점에 테이블을 drop하고 다시 생성한다.
+    open-in-view: false # OSIV 비활성화
+    properties:
+      hibernate:
+        show_sql: true # sql 실행 로그 출력
+        format_sql: true # sql 로그를 남길 때 포맷팅한다.
+        default_batch_fetch_size: 1000 # 일괄 로딩(Batch Fetching)을 사용할 때 한 번에 가져오는 엔티티의 수를 지정하는 설정값
